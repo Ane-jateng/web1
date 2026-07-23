@@ -4,18 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diane Noviandini · Dosen Fisika</title>
-  <!-- Font & Ikon -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(145deg, #f8faff 0%, #edf2f9 100%);
@@ -26,7 +20,6 @@
       padding: 2rem 1.5rem;
       color: #1e2a3a;
     }
-
     .card {
       max-width: 1100px;
       width: 100%;
@@ -36,11 +29,8 @@
       border-radius: 48px;
       box-shadow: 0 25px 50px -8px rgba(0, 20, 40, 0.15), 0 8px 24px -6px rgba(0, 0, 0, 0.05);
       padding: 2.8rem 2.8rem;
-      transition: all 0.2s ease;
       border: 1px solid rgba(255, 255, 255, 0.5);
     }
-
-    /* profil header */
     .profile-header {
       display: flex;
       flex-wrap: wrap;
@@ -48,12 +38,6 @@
       gap: 2.5rem;
       margin-bottom: 2rem;
     }
-
-    .avatar-wrapper {
-      flex-shrink: 0;
-      position: relative;
-    }
-
     .avatar {
       width: 130px;
       height: 130px;
@@ -65,75 +49,49 @@
       color: white;
       font-size: 3.8rem;
       font-weight: 600;
-      letter-spacing: 1px;
       box-shadow: 0 18px 30px -10px rgba(26, 67, 113, 0.25);
       border: 3px solid rgba(255, 255, 255, 0.6);
-      transition: 0.2s;
-      font-family: 'Inter', sans-serif;
     }
-
-    .avatar span {
-      transform: scale(1);
-    }
-
     .title-group h1 {
       font-size: 2.8rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
       color: #0f1e2f;
       margin-bottom: 0.3rem;
       line-height: 1.1;
     }
-
     .title-group .badge {
       display: inline-block;
-      background: #1f3a5f;
+      background: linear-gradient(145deg, #1f3a5f, #1a3151);
       color: white;
       padding: 0.45rem 1.6rem;
       border-radius: 60px;
       font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 0.3px;
-      background: linear-gradient(145deg, #1f3a5f, #1a3151);
       box-shadow: 0 4px 10px rgba(26, 67, 113, 0.15);
       margin-top: 0.2rem;
     }
-
-    .title-group .badge i {
-      margin-right: 8px;
-      font-size: 0.85rem;
-    }
-
+    .title-group .badge i { margin-right: 8px; }
     .subhead {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 1.2rem 1.8rem;
       margin-top: 0.8rem;
       color: #2d4059;
     }
-
     .subhead-item {
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 1rem;
-      font-weight: 400;
       background: rgba(255, 255, 255, 0.4);
       padding: 0.3rem 1rem 0.3rem 0.8rem;
       border-radius: 60px;
       backdrop-filter: blur(4px);
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
+    .subhead-item i { color: #1f3a5f; width: 1.4rem; text-align: center; }
 
-    .subhead-item i {
-      color: #1f3a5f;
-      font-size: 1rem;
-      width: 1.4rem;
-      text-align: center;
-    }
-
-    /* video streaming */
+    /* Video streaming */
     .video-wrapper {
       margin: 1.8rem 0 2rem;
       border-radius: 28px;
@@ -143,40 +101,37 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       position: relative;
     }
-
-    .video-wrapper iframe {
+    .video-wrapper video {
       display: block;
       width: 100%;
       height: 380px;
-      border: none;
       background: #0b1a2b;
+      object-fit: cover;
     }
-
+    .video-wrapper video::-webkit-media-controls {
+      background: rgba(0,0,0,0.6);
+    }
     .video-label {
       display: flex;
       align-items: center;
       gap: 10px;
       padding: 0.8rem 1.5rem;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(8px);
       color: rgba(255, 255, 255, 0.8);
       font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0.3px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-
-    .video-label i {
+    .video-label .live-dot {
       color: #ff4d4d;
       font-size: 0.8rem;
       animation: pulse-dot 1.5s ease-in-out infinite;
     }
-
     @keyframes pulse-dot {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
+      50% { opacity: 0.3; transform: scale(0.8); }
     }
-
     .video-label .live-badge {
       background: #e74c3c;
       color: white;
@@ -187,8 +142,15 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
+    .video-label .stream-url {
+      margin-left: auto;
+      font-size: 0.75rem;
+      opacity: 0.6;
+      font-weight: 300;
+    }
+    .video-label .stream-url i { margin-right: 4px; }
 
-    /* grid info */
+    /* Info grid */
     .info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -200,20 +162,12 @@
       backdrop-filter: blur(4px);
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
-
     .info-item {
       display: flex;
       align-items: flex-start;
       gap: 1rem;
     }
-
-    .info-item i {
-      color: #1f3a5f;
-      font-size: 1.3rem;
-      width: 1.8rem;
-      margin-top: 0.1rem;
-    }
-
+    .info-item i { color: #1f3a5f; font-size: 1.3rem; width: 1.8rem; margin-top: 0.1rem; }
     .info-item .label {
       font-size: 0.8rem;
       font-weight: 600;
@@ -223,22 +177,9 @@
       opacity: 0.8;
       margin-bottom: 0.15rem;
     }
-
-    .info-item .value {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: #0b1b2b;
-      line-height: 1.4;
-    }
-
-    .info-item .value small {
-      font-weight: 400;
-      font-size: 0.9rem;
-      color: #2c4a6e;
-      display: block;
-    }
-
-    .info-item .value .course-tag {
+    .info-item .value { font-size: 1.05rem; font-weight: 500; color: #0b1b2b; line-height: 1.4; }
+    .info-item .value small { font-weight: 400; font-size: 0.9rem; color: #2c4a6e; display: block; }
+    .course-tag {
       display: inline-block;
       background: rgba(26, 67, 113, 0.08);
       padding: 0.1rem 0.8rem;
@@ -246,20 +187,16 @@
       font-size: 0.85rem;
       font-weight: 500;
       color: #1f3a5f;
-      margin: 0.1rem 0.2rem 0.1rem 0;
+      margin: 0.1rem 0.2rem;
     }
 
-    /* bio & penelitian */
+    /* Bio */
     .bio-section {
-      margin: 1.5rem 0 2rem;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 1.2rem 0.2rem 0.2rem 0.2rem;
-      border-radius: 20px;
+      margin: 1.5rem 0 2rem;
     }
-
     .bio-card {
       flex: 1 1 240px;
       background: rgba(255, 255, 255, 0.5);
@@ -267,9 +204,7 @@
       padding: 1.5rem 1.8rem;
       border-radius: 28px;
       border: 1px solid rgba(255, 255, 255, 0.7);
-      transition: 0.15s;
     }
-
     .bio-card h3 {
       font-size: 1rem;
       font-weight: 600;
@@ -281,25 +216,8 @@
       align-items: center;
       gap: 0.6rem;
     }
-
-    .bio-card h3 i {
-      font-size: 1.1rem;
-      color: #1f3a5f;
-    }
-
-    .bio-card p {
-      font-size: 0.98rem;
-      line-height: 1.6;
-      color: #1e3144;
-    }
-
-    .bio-card .tag-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.6rem;
-    }
-
+    .bio-card p { font-size: 0.98rem; line-height: 1.6; color: #1e3144; }
+    .tag-group { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
     .tag {
       background: rgba(26, 67, 113, 0.08);
       padding: 0.2rem 1rem;
@@ -310,7 +228,7 @@
       border: 1px solid rgba(26, 67, 113, 0.08);
     }
 
-    /* social + action */
+    /* Footer */
     .footer-links {
       display: flex;
       flex-wrap: wrap;
@@ -321,13 +239,7 @@
       padding-top: 1.8rem;
       border-top: 1px solid rgba(0, 0, 0, 0.04);
     }
-
-    .social-icons {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
+    .social-icons { display: flex; gap: 1rem; }
     .social-icons a {
       display: inline-flex;
       align-items: center;
@@ -343,19 +255,15 @@
       transition: 0.2s;
       text-decoration: none;
     }
-
     .social-icons a:hover {
       background: #1f3a5f;
       color: white;
       transform: translateY(-3px);
       box-shadow: 0 12px 20px -8px rgba(19, 51, 94, 0.2);
-      border-color: #1f3a5f;
     }
-
     .btn-cv {
-      background: #1f3a5f;
+      background: linear-gradient(145deg, #1f3a5f, #1a3151);
       color: white;
-      border: none;
       padding: 0.8rem 2.2rem;
       border-radius: 60px;
       font-weight: 600;
@@ -364,140 +272,47 @@
       align-items: center;
       gap: 10px;
       box-shadow: 0 8px 18px -4px rgba(26, 67, 113, 0.25);
-      transition: 0.2s;
-      cursor: default;
-      text-decoration: none;
-      letter-spacing: 0.2px;
-      background: linear-gradient(145deg, #1f3a5f, #1a3151);
       border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .btn-cv i {
-      font-size: 0.9rem;
-    }
-
-    .btn-cv:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 24px -4px rgba(26, 67, 113, 0.35);
-      background: #234571;
       cursor: pointer;
     }
+    .btn-cv:hover { transform: scale(1.02); background: #234571; }
+    .motto { font-style: italic; font-weight: 300; color: #1f3a5f; opacity: 0.8; font-size: 0.95rem; margin-top: 0.3rem; }
 
-    .btn-cv:active {
-      transform: scale(0.98);
-    }
-
-    /* respon */
     @media (max-width: 720px) {
-      .card {
-        padding: 2rem 1.5rem;
-        border-radius: 32px;
-      }
-
-      .profile-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.2rem;
-      }
-
-      .avatar {
-        width: 100px;
-        height: 100px;
-        font-size: 2.8rem;
-        border-radius: 32px;
-      }
-
-      .title-group h1 {
-        font-size: 2.2rem;
-      }
-
-      .info-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-        padding: 1.5rem;
-      }
-
-      .subhead {
-        gap: 0.6rem;
-      }
-
-      .subhead-item {
-        font-size: 0.9rem;
-        padding: 0.2rem 0.8rem 0.2rem 0.6rem;
-      }
-
-      .footer-links {
-        flex-direction: column-reverse;
-        align-items: stretch;
-      }
-
-      .btn-cv {
-        justify-content: center;
-        padding: 0.8rem 1.2rem;
-      }
-
-      .social-icons {
-        justify-content: center;
-      }
-
-      .video-wrapper iframe {
-        height: 220px;
-      }
+      .card { padding: 2rem 1.5rem; border-radius: 32px; }
+      .profile-header { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+      .avatar { width: 100px; height: 100px; font-size: 2.8rem; border-radius: 32px; }
+      .title-group h1 { font-size: 2.2rem; }
+      .info-grid { grid-template-columns: 1fr; padding: 1.5rem; }
+      .footer-links { flex-direction: column-reverse; align-items: stretch; }
+      .btn-cv { justify-content: center; }
+      .social-icons { justify-content: center; }
+      .video-wrapper video { height: 220px; }
     }
-
     @media (max-width: 480px) {
-      .card {
-        padding: 1.5rem 1rem;
-      }
-
-      .title-group h1 {
-        font-size: 1.8rem;
-      }
-
-      .bio-card {
-        padding: 1rem 1.2rem;
-      }
-
-      .info-item .value {
-        font-size: 0.95rem;
-      }
-
-      .video-wrapper iframe {
-        height: 180px;
-      }
+      .card { padding: 1.5rem 1rem; }
+      .title-group h1 { font-size: 1.8rem; }
+      .video-wrapper video { height: 180px; }
     }
-
-    .highlight {
-      background: rgba(31, 58, 95, 0.04);
-      border-radius: 60px;
-      padding: 0.2rem 0.8rem;
-      font-weight: 500;
-    }
-
-    .motto {
-      font-style: italic;
-      font-weight: 300;
-      color: #1f3a5f;
-      opacity: 0.8;
-      font-size: 0.95rem;
-      margin-top: 0.3rem;
+    .credit {
+      text-align: right;
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      opacity: 0.3;
+      letter-spacing: 0.5px;
+      border-top: 1px solid rgba(0,0,0,0.02);
+      padding-top: 1rem;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <!-- header -->
+    <!-- Header -->
     <div class="profile-header">
-      <div class="avatar-wrapper">
-        <div class="avatar">
-          <span>DN</span>
-        </div>
-      </div>
+      <div class="avatar"><span>DN</span></div>
       <div class="title-group">
         <h1>Diane Noviandini</h1>
-        <div class="badge">
-          <i class="fas fa-chalkboard-teacher"></i> Dosen Pendidikan Fisika
-        </div>
+        <div class="badge"><i class="fas fa-chalkboard-teacher"></i> Dosen Pendidikan Fisika</div>
         <div class="subhead">
           <span class="subhead-item"><i class="fas fa-university"></i> UKSW</span>
           <span class="subhead-item"><i class="fas fa-building"></i> FSM · Fisika</span>
@@ -505,31 +320,41 @@
           <span class="subhead-item"><i class="fas fa-calendar-alt"></i> Aktif 2016</span>
         </div>
         <div class="motto">
-          <i class="fas fa-quote-left" style="margin-right: 6px; opacity: 0.5;"></i> Membangun generasi kritis melalui fisika dan pendidikan
+          <i class="fas fa-quote-left" style="margin-right: 6px; opacity: 0.5;"></i> 
+          Membangun generasi kritis melalui fisika dan pendidikan
         </div>
       </div>
     </div>
 
-    <!-- Video Streaming -->
+    <!-- Video Streaming dengan tag <video> -->
     <div class="video-wrapper">
       <div class="video-label">
-        <i class="fas fa-circle"></i>
+        <span class="live-dot"><i class="fas fa-circle"></i></span>
         <span class="live-badge">LIVE</span>
-        <span style="margin-left: 6px;">Streaming · <span style="font-weight: 300; opacity: 0.7;">http://10.101.209.105/</span></span>
-        <span style="margin-left: auto; font-size: 0.75rem; opacity: 0.6;">
-          <i class="fas fa-video"></i> 720p
-        </span>
+        <span style="margin-left: 6px;">Streaming</span>
+        <span class="stream-url"><i class="fas fa-link"></i> 10.101.209.105</span>
       </div>
-      <iframe 
-        src="http://10.101.209.105/" 
-        allowfullscreen
-        loading="lazy"
-        title="Live Streaming Diane Noviandini"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
-      ></iframe>
+      <video 
+        id="streamVideo"
+        src="http://10.101.209.105/"
+        autoplay
+        muted
+        playsinline
+        controls
+        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%230b1a2b'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter, sans-serif' font-size='24' fill='%236688aa' text-anchor='middle' dy='.3em'%3E%F0%9F%93%BA Memuat stream...%3C/text%3E%3C/svg%3E"
+        onerror="this.style.display='none'; document.getElementById('fallbackMsg').style.display='flex';"
+      ></video>
+      <div id="fallbackMsg" style="display:none; padding:2.5rem 1rem; text-align:center; background:#0b1a2b; color:#8899bb; font-size:0.95rem; flex-direction:column; align-items:center; gap:0.8rem;">
+        <i class="fas fa-video-slash" style="font-size:2.5rem; color:#556677;"></i>
+        <p>Stream tidak dapat dimuat. Pastikan server <strong>http://10.101.209.105/</strong> aktif dan dapat diakses.</p>
+        <p style="font-size:0.8rem; opacity:0.6;">Jika ini adalah IP camera atau server lokal, akses dari jaringan yang sama.</p>
+        <button onclick="location.reload()" style="background:#1f3a5f; color:white; border:none; padding:0.5rem 2rem; border-radius:30px; cursor:pointer; font-size:0.9rem; margin-top:0.5rem;">
+          <i class="fas fa-sync"></i> Coba lagi
+        </button>
+      </div>
     </div>
 
-    <!-- grid info -->
+    <!-- Info -->
     <div class="info-grid">
       <div class="info-item">
         <i class="fas fa-graduation-cap"></i>
@@ -565,7 +390,7 @@
       </div>
     </div>
 
-    <!-- bio dan penelitian -->
+    <!-- Bio -->
     <div class="bio-section">
       <div class="bio-card">
         <h3><i class="fas fa-user-graduate"></i> Tentang</h3>
@@ -578,10 +403,7 @@
       </div>
       <div class="bio-card">
         <h3><i class="fas fa-microscope"></i> Riset &amp; Publikasi</h3>
-        <p>
-          Fokus pada <strong>fisika kuantum</strong> dan <strong>pembelajaran berbasis laboratorium</strong>. 
-          Beberapa karya terbaru:
-        </p>
+        <p>Fokus pada <strong>fisika kuantum</strong> dan <strong>pembelajaran berbasis laboratorium</strong>.</p>
         <div class="tag-group">
           <span class="tag">Fisika &amp; Teknologi</span>
           <span class="tag">PBL</span>
@@ -594,7 +416,7 @@
       </div>
     </div>
 
-    <!-- footer: social + action -->
+    <!-- Footer -->
     <div class="footer-links">
       <div class="social-icons">
         <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -609,10 +431,23 @@
       </div>
     </div>
 
-    <!-- kredit -->
-    <div style="text-align: right; margin-top: 2rem; font-size: 0.7rem; opacity: 0.3; letter-spacing: 0.5px; border-top: 1px solid rgba(0,0,0,0.02); padding-top: 1rem;">
+    <div class="credit">
       <i class="fas fa-at"></i> UKSW · FSM · Pendidikan Fisika
     </div>
   </div>
+
+  <script>
+    // Coba reload video jika gagal
+    const video = document.getElementById('streamVideo');
+    if (video) {
+      video.addEventListener('error', function(e) {
+        console.log('Video error, mencoba reload...');
+        // Coba reload source
+        setTimeout(() => {
+          video.load();
+        }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>
