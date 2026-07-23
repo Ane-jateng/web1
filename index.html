@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diane Noviandini · Dosen Fisika</title>
+  <!-- Font & Ikon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f8faff 0%, #edf2f9 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      color: #1e2a3a;
+    }
+
+    .card {
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      box-shadow: 0 25px 50px -8px rgba(0, 20, 40, 0.15), 0 8px 24px -6px rgba(0, 0, 0, 0.05);
+      padding: 2.8rem 2.8rem;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    /* profil header */
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .avatar-wrapper {
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      background: linear-gradient(135deg, #2b4a7a, #1c3355);
+      border-radius: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      box-shadow: 0 18px 30px -10px rgba(26, 67, 113, 0.25);
+      border: 3px solid rgba(255, 255, 255, 0.6);
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .avatar span {
+      transform: scale(1);
+    }
+
+    .title-group h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0f1e2f;
+      margin-bottom: 0.3rem;
+      line-height: 1.1;
+    }
+
+    .title-group .badge {
+      display: inline-block;
+      background: #1f3a5f;
+      color: white;
+      padding: 0.45rem 1.6rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      background: linear-gradient(145deg, #1f3a5f, #1a3151);
+      box-shadow: 0 4px 10px rgba(26, 67, 113, 0.15);
+      margin-top: 0.2rem;
+    }
+
+    .title-group .badge i {
+      margin-right: 8px;
+      font-size: 0.85rem;
+    }
+
+    .subhead {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem 1.8rem;
+      margin-top: 0.8rem;
+      color: #2d4059;
+    }
+
+    .subhead-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 400;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 0.3rem 1rem 0.3rem 0.8rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .subhead-item i {
+      color: #1f3a5f;
+      font-size: 1rem;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    /* grid info */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem 2.5rem;
+      margin: 2.8rem 0 2.2rem;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 1.8rem 2rem;
+      border-radius: 32px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .info-item i {
+      color: #1f3a5f;
+      font-size: 1.3rem;
+      width: 1.8rem;
+      margin-top: 0.1rem;
+    }
+
+    .info-item .label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #3e5775;
+      opacity: 0.8;
+      margin-bottom: 0.15rem;
+    }
+
+    .info-item .value {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #0b1b2b;
+      line-height: 1.4;
+    }
+
+    .info-item .value small {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #2c4a6e;
+      display: block;
+    }
+
+    /* bio & penelitian */
+    .bio-section {
+      margin: 1.8rem 0 2.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1.2rem 0.2rem 0.2rem 0.2rem;
+      border-radius: 20px;
+    }
+
+    .bio-card {
+      flex: 1 1 240px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      padding: 1.5rem 1.8rem;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      transition: 0.15s;
+    }
+
+    .bio-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1f3a5f;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .bio-card h3 i {
+      font-size: 1.1rem;
+      color: #1f3a5f;
+    }
+
+    .bio-card p {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: #1e3144;
+    }
+
+    .bio-card .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+
+    .tag {
+      background: rgba(26, 67, 113, 0.08);
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f3a5f;
+      border: 1px solid rgba(26, 67, 113, 0.08);
+    }
+
+    /* social + action */
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 1.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      color: #1a2d44;
+      font-size: 1.2rem;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background: #1f3a5f;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -8px rgba(19, 51, 94, 0.2);
+      border-color: #1f3a5f;
+    }
+
+    .btn-cv {
+      background: #1f3a5f;
+      color: white;
+      border: none;
+      padding: 0.8rem 2.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 18px -4px rgba(26, 67, 113, 0.25);
+      transition: 0.2s;
+      cursor: default;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      background: linear-gradient(145deg, #1f3a5f, #1a3151);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-cv i {
+      font-size: 0.9rem;
+    }
+
+    .btn-cv:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 24px -4px rgba(26, 67, 113, 0.35);
+      background: #234571;
+      cursor: pointer;
+    }
+
+    .btn-cv:active {
+      transform: scale(0.98);
+    }
+
+    /* respon */
+    @media (max-width: 720px) {
+      .card {
+        padding: 2rem 1.5rem;
+        border-radius: 32px;
+      }
+
+      .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.8rem;
+        border-radius: 32px;
+      }
+
+      .title-group h1 {
+        font-size: 2.2rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1.5rem;
+      }
+
+      .subhead {
+        gap: 0.6rem;
+      }
+
+      .subhead-item {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.8rem 0.2rem 0.6rem;
+      }
+
+      .footer-links {
+        flex-direction: column-reverse;
+        align-items: stretch;
+      }
+
+      .btn-cv {
+        justify-content: center;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.5rem 1rem;
+      }
+
+      .title-group h1 {
+        font-size: 1.8rem;
+      }
+
+      .bio-card {
+        padding: 1rem 1.2rem;
+      }
+
+      .info-item .value {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* sentuhan ekstra */
+    .highlight {
+      background: rgba(31, 58, 95, 0.04);
+      border-radius: 60px;
+      padding: 0.2rem 0.8rem;
+      font-weight: 500;
+    }
+
+    .motto {
+      font-style: italic;
+      font-weight: 300;
+      color: #1f3a5f;
+      opacity: 0.8;
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- header -->
+    <div class="profile-header">
+      <div class="avatar-wrapper">
+        <div class="avatar">
+          <span>DN</span>
+        </div>
+      </div>
+      <div class="title-group">
+        <h1>Diane Noviandini</h1>
+        <div class="badge">
+          <i class="fas fa-chalkboard-teacher"></i> Dosen Pendidikan Fisika
+        </div>
+        <div class="subhead">
+          <span class="subhead-item"><i class="fas fa-university"></i> UKSW</span>
+          <span class="subhead-item"><i class="fas fa-map-pin"></i> Salatiga, Indonesia</span>
+          <span class="subhead-item"><i class="fas fa-calendar-alt"></i> Aktif 2016</span>
+        </div>
+        <div class="motto">
+          <i class="fas fa-quote-left" style="margin-right: 6px; opacity: 0.5;"></i> Membangun generasi kritis melalui fisika dan pendidikan
+        </div>
+      </div>
+    </div>
+
+    <!-- grid info -->
+    <div class="info-grid">
+      <div class="info-item">
+        <i class="fas fa-graduation-cap"></i>
+        <div>
+          <div class="label">Pendidikan</div>
+          <div class="value">S2 Pendidikan Fisika <small>Universitas Pendidikan Indonesia</small></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-flask"></i>
+        <div>
+          <div class="label">Bidang Minat</div>
+          <div class="value">Fisika Modern &amp; Inovasi Pembelajaran</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-book-open"></i>
+        <div>
+          <div class="label">Mata Kuliah</div>
+          <div class="value">Fisika Dasar, Elektromagnetisme, <small>Laboratorium Fisika</small></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-id-card"></i>
+        <div>
+          <div class="label">NIDN / NIP</div>
+          <div class="value">0621098902 <small> (UKSW)</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bio dan penelitian -->
+    <div class="bio-section">
+      <div class="bio-card">
+        <h3><i class="fas fa-user-graduate"></i> Tentang</h3>
+        <p>
+          Diane Noviandini, M.Pd., adalah dosen tetap di Program Studi Pendidikan Fisika, 
+          Fakultas Keguruan dan Ilmu Pendidikan, Universitas Kristen Satya Wacana. 
+          Aktif dalam pengembangan kurikulum berbasis riset dan pendekatan kontekstual.
+        </p>
+      </div>
+      <div class="bio-card">
+        <h3><i class="fas fa-microscope"></i> Riset &amp; Publikasi</h3>
+        <p>
+          Fokus pada <strong>fisika kuantum</strong> dan <strong>pembelajaran berbasis laboratorium</strong>. 
+          Beberapa karya terbaru:
+        </p>
+        <div class="tag-group">
+          <span class="tag">Fisika &amp; Teknologi</span>
+          <span class="tag">PBL</span>
+          <span class="tag">Literasi Sains</span>
+          <span class="tag">Eksperimen Digital</span>
+        </div>
+        <p style="margin-top: 0.6rem; font-size: 0.9rem; color: #1f3a5f;">
+          <i class="fas fa-file-alt" style="margin-right: 6px;"></i> 12 artikel jurnal, 3 buku ajar
+        </p>
+      </div>
+    </div>
+
+    <!-- footer: social + action -->
+    <div class="footer-links">
+      <div class="social-icons">
+        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="btn-cv">
+        <i class="fas fa-file-pdf"></i> Profil lengkap
+        <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
+      </div>
+    </div>
+
+    <!-- kredit kecil (opsional) -->
+    <div style="text-align: right; margin-top: 2rem; font-size: 0.7rem; opacity: 0.3; letter-spacing: 0.5px; border-top: 1px solid rgba(0,0,0,0.02); padding-top: 1rem;">
+      <i class="fas fa-at"></i> UKSW · Pendidikan Fisika
+    </div>
+  </div>
+</body>
+</html>
